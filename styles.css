@@ -768,7 +768,7 @@ a.footer__link:hover { color: var(--accent); }
   .nav { display: flex; }
   .burger, .mobile-menu { display: none; }
 
-  .hero { min-height: 880px; align-items: center; padding: 150px 0 90px; }
+  .hero { min-height: 880px; padding: 150px 0 90px; }
   .hero__overlay {
     background:
       linear-gradient(90deg, rgba(10, 9, 6, 0.88) 0%, rgba(10, 9, 6, 0.7) 58%, rgba(10, 9, 6, 0.5) 72%, rgba(10, 9, 6, 0.3) 100%),
