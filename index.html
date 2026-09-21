@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Работа водителем такси в Кишинёве — OMEGA</title>
+<meta name="description" content="Работа водителем в Кишинёве: автомобиль таксопарка или свой, гибкий график, понятные условия. Позвоните или приезжайте в офис — подберём автомобиль при встрече.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="wrap header__row">
+    <a href="#hero" class="logo">
+      <img class="logo__img" src="img/logo/omega-logo.svg" alt="OMEGA" id="logoImg">
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Основная навигация"></nav>
+
+    <div class="header__actions">
+      <a href="#apply" class="btn btn--primary btn--sm js-call" data-source="header" data-with-number>Позвонить</a>
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-menu__nav" id="mobileNav" aria-label="Мобильная навигация"></nav>
+    <a href="#apply" class="btn btn--primary btn--block js-call" data-source="mobile_menu" data-with-number>Позвонить</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <img class="hero__bg" src="img/hero/hero-bg7.jpg" alt="" id="heroImg" fetchpriority="high">
+  <div class="hero__overlay" aria-hidden="true"></div>
+  <div class="wrap hero__row">
+    <div class="hero__content">
+      <p class="eyebrow" id="heroEyebrow"></p>
+      <h1 class="hero__title" id="heroTitle"></h1>
+      <p class="hero__subtitle" id="heroSubtitle"></p>
+
+      <div class="hero__cta">
+        <a href="#apply" class="btn btn--primary btn--lg js-call" data-source="hero_primary" data-with-number id="heroCtaPrimary">Позвонить</a>
+        <button type="button" class="btn btn--outline btn--lg js-scroll" id="heroCtaSecondary"></button>
+      </div>
+
+      <p class="hero__note" id="heroNote"></p>
+      <!-- <p class="hero__facts" id="heroFacts"></p> -->
+    </div>
+  </div>
+</section>
+
+<!-- WORK TYPES -->
+<section class="section" id="work-types">
+  <div class="wrap">
+    <p class="eyebrow">Формат работы</p>
+    <h2 class="section__title">Как вы хотите работать?</h2>
+    <p class="section__subtitle">Оба варианта обсуждаются лично в таксопарке — с учётом вашего опыта и того, какие машины свободны.</p>
+
+    <div class="cards cards--work-types" id="workTypeCards"></div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="section section--alt" id="benefits">
+  <div class="wrap">
+    <p class="eyebrow">Что вы получаете</p>
+    <h2 class="section__title">Что вы получаете?</h2>
+    <div class="cards cards--3" id="benefitCards"></div>
+  </div>
+</section>
+
+<!-- VEHICLES -->
+<section class="section" id="avtomobili">
+  <div class="wrap">
+    <p class="eyebrow">Автопарк</p>
+    <h2 class="section__title">Автомобили таксопарка</h2>
+    <p class="section__subtitle" id="vehiclesSubtitle"></p>
+
+    <div class="cards cards--vehicles" id="vehicleCards"></div>
+
+    <div class="notice" id="vehiclesNotice"></div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="section section--alt" id="calculator">
+  <div class="wrap">
+    <p class="eyebrow">Прикинуть доход</p>
+    <h2 class="section__title">Сколько можно заработать?</h2>
+    <p class="section__subtitle">Рассчитайте ориентировочный доход в зависимости от вашего графика.</p>
+
+    <div class="calc">
+      <div class="calc__panel">
+        <div class="calc__step">
+          <span class="calc__step-label">Выберите вариант работы</span>
+          <div class="calc__toggle" id="calcWorkType" role="tablist"></div>
+        </div>
+
+        <div class="calc__step">
+          <span class="calc__step-label">Тариф</span>
+          <div class="calc__toggle" id="calcTariff" role="tablist"></div>
+        </div>
+
+        <div class="calc__step">
+          <div class="calc__row">
+            <span class="calc__step-label">Сколько часов в день?</span>
+            <span class="calc__value"><span id="calcHoursValue"></span> ч</span>
+          </div>
+          <input type="range" id="calcHours" class="calc__range" aria-label="Часов в день">
+        </div>
+
+        <div class="calc__step">
+          <div class="calc__row">
+            <span class="calc__step-label">Сколько дней в неделю?</span>
+            <span class="calc__value"><span id="calcDaysValue"></span> дн.</span>
+          </div>
+          <input type="range" id="calcDays" class="calc__range" aria-label="Дней в неделю">
+        </div>
+      </div>
+
+      <div class="calc__result">
+        <span class="calc__result-label">Ориентировочный доход в месяц</span>
+        <span class="calc__result-value" id="calcResultValue"></span>
+        <span class="calc__result-note" id="calcResultNote"></span>
+        <a href="#apply" class="btn btn--primary btn--block js-call" data-source="calculator" data-event="income_calculator_complete">Позвонить и уточнить условия</a>
+        <p class="calc__disclaimer" id="calcDisclaimer"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO START -->
+<section class="section" id="how-to-start">
+  <div class="wrap">
+    <p class="eyebrow">Это просто</p>
+    <h2 class="section__title">Как начать работать</h2>
+    <div class="steps" id="stepsList"></div>
+  </div>
+</section>
+
+<!-- CONDITIONS -->
+<section class="section section--alt" id="usloviya">
+  <div class="wrap">
+    <p class="eyebrow">Прозрачность</p>
+    <h2 class="section__title">Условия работы</h2>
+    <p class="section__subtitle">Главное — понимать условия до звонка и визита.</p>
+
+    <div class="conditions" id="conditionsList"></div>
+  </div>
+</section>
+
+<!-- OWN CAR -->
+<section class="section" id="own-car">
+  <div class="wrap wrap--narrow">
+    <p class="eyebrow">Свой автомобиль</p>
+    <h2 class="section__title" id="ownCarTitle"></h2>
+    <p class="section__subtitle" id="ownCarSubtitle"></p>
+
+    <ul class="checklist" id="ownCarChecklist"></ul>
+
+    <div class="notice" id="ownCarNotice"></div>
+  </div>
+</section>
+
+<!-- REQUIREMENTS -->
+<section class="section section--alt" id="requirements">
+  <div class="wrap">
+    <p class="eyebrow">Подготовка</p>
+    <h2 class="section__title">Что нужно для начала работы?</h2>
+    <div class="cards cards--3" id="requirementCards"></div>
+  </div>
+</section>
+
+<!-- TRUST POINTS -->
+<section class="section" id="trust">
+  <div class="wrap">
+    <p class="eyebrow">Что важно знать</p>
+    <h2 class="section__title">Что важно знать перед звонком</h2>
+    <div class="cards cards--4" id="trustCards"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section--alt" id="faq">
+  <div class="wrap wrap--narrow">
+    <p class="eyebrow">Вопросы и ответы</p>
+    <h2 class="section__title">Частые вопросы</h2>
+    <div class="accordion" id="faqAccordion"></div>
+
+    <div class="notice" id="faqNotice"></div>
+  </div>
+</section>
+
+<!-- CONTACT / FINAL CTA -->
+<section class="section cta-final" id="apply">
+  <div class="wrap wrap--narrow">
+    <p class="eyebrow">Контакты</p>
+    <h2 class="section__title" id="finalCtaTitle"></h2>
+    <p class="section__subtitle" id="finalCtaSubtitle"></p>
+
+    <a href="#apply" class="btn btn--primary btn--lg btn--block js-call" id="contactPhoneBtn" data-source="final_cta" data-with-number>Позвонить</a>
+    <p class="contact__busy" id="contactBusy"></p>
+
+    <div class="messengers" id="messengers"></div>
+
+    <div class="contact__grid">
+      <div class="contact__box">
+        <h3 class="contact__box-title">Приезжайте в офис</h3>
+        <ul class="contact__meta" id="contactMeta"></ul>
+      </div>
+      <div class="contact__box">
+        <h3 class="contact__box-title" id="bringTitle"></h3>
+        <ul class="checklist checklist--compact" id="bringList"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="contacts">
+  <div class="wrap footer__row">
+    <div class="footer__col">
+      <div class="logo logo--footer">
+        <img class="logo__img" src="img/logo/omega-logo.svg" alt="OMEGA" id="footerLogoImg">
+      </div>
+      <p class="footer__text">Работа водителем в Кишинёве: автомобили, гибкий график и понятные условия.</p>
+    </div>
+
+    <div class="footer__col">
+      <h4 class="footer__heading">Разделы</h4>
+      <nav class="footer__links" id="footerNav"></nav>
+    </div>
+
+    <div class="footer__col">
+      <h4 class="footer__heading">Контакты</h4>
+      <div class="footer__links" id="footerContacts"></div>
+    </div>
+  </div>
+
+  <div class="wrap footer__bottom">
+    <p>© 2026 OMEGA. Все права защищены.</p>
+    <a href="#" class="footer__policy">Политика конфиденциальности</a>
+  </div>
+</footer>
+
+<!-- ROAD: фиксированная полоса, по которой «едет» логотип при прокрутке -->
+<div class="road" id="road" aria-hidden="true">
+  <div class="road-person" id="roadPerson">
+    <img class="road-person__pose road-person__pose--wave" src="img/icons/walking-person-wave.svg" alt="">
+    <img class="road-person__pose road-person__pose--walk" src="img/icons/walking-person.svg" alt="">
+  </div>
+</div>
+<img class="road-car" id="roadCar" src="img/logo/omega-logo.svg" alt="" aria-hidden="true">
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <a href="#apply" class="sticky-cta__btn js-call" data-source="sticky_mobile" data-with-number>Позвонить</a>
+</div>
+
+<script src="data/demo-data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
